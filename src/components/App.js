@@ -34,17 +34,24 @@ class App extends Component {
       { name: "Tirupati", country: "India" } ];
   } 
   render() {
-    var indianLocations = this.cityList.filter((item, index) => { 
-      return item.country === "India"; });
-     var otherLocations = this.cityList.filter((item, index) => { 
-      return item.country !== "India"; }); 
-    var newList = [...indianLocations, ...otherLocations]; 
-    return ( 
-      <div id="main"> 
-      <ol> {newList.map((item, index) => ( <li key={`location${index + 1}`}>{item.name}</li> ))} 
-      </ol>
-      </div> ); 
-      } 
+    let filtered = this.cityList.filter((item)=>{
+      return item.country==='India'
+    })
+    console.log(filtered);
+
+    return (
+      <div id="main">       
+        <ol>
+        {filtered.map((item,index)=>{
+          return  <li key={`location${index+1}`}>{item.name}</li>   
+        })
+        }
+        </ol>
+
+      </div>
+    )
+  }
+
       } 
       
       export default App;
